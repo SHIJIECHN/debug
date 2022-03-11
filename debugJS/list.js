@@ -2,6 +2,13 @@
  * 调试LeetCode中链表类型题目
  * 将输入的数组转换为链表
  */
+
+/**
+ * 
+ * @param {*} arr 需要转换的数组
+ * @param {*} type 转换的类型， 0为单链表，1为循环链表
+ * @returns 
+ */
 export function array2list(arr, type = 0) {
     if (arr.length === 0) {
         return null;
@@ -28,6 +35,11 @@ export function array2list(arr, type = 0) {
          */
         p = node
     }
+
+    if(type){
+        p.next = head
+    }
+
     console.log('list: ' + JSON.stringify(head, null, arr.length))
     return head;
 }
@@ -37,6 +49,7 @@ export function array2list(arr, type = 0) {
  */
 export function list2array(head) {
     if (!head) {
+        console.log('array: []');
         return [];
     }
     let result = [],
